@@ -6,12 +6,12 @@ function Feed() {
   const [posts, setPosts] = useState([
     {
       username: "Sujithra",
-      message: "Welcome to my Mini Twitter app 🔥",
+      message: "Welcome to my Mini Twitter app ",
       time: "Just now",
     },
     {
       username: "React Dev",
-      message: "Learning MERN stack step by step 💻",
+      message: "Learning MERN stack step by step ",
       time: "5 mins ago",
     },
   ]);
