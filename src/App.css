@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  background-color: #f0f2f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.homeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+  color: #1da1f2;
+}
+
+.sidebar p {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.sidebar p:hover {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+/* Feed */
+.feed {
+  width: 500px;
+  padding: 20px;
+}
+
+.feedHeader {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.feedHeader h2 {
+  margin: 0;
+}
+
+/* TweetBox */
+.tweetBox {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tweetBox input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.tweetBox button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #1da1f2;
+  color: white;
+  cursor: pointer;
+}
+
+.tweetBox button:hover {
+  background-color: #0d8ddb;
+}
+
+/* Post */
+.post {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+}
+
+.post button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #e0245e;
+  font-weight: bold;
+}
+
+.postHeader {
+  margin-bottom: 8px;
+}
