@@ -1,32 +1,16 @@
-import React from "react";
-
 function Sidebar() {
   return (
     <div className="sidebar">
-      <h2>Mini Twitter</h2>
-      <p>Home</p>
-      <p>Profile</p>
-      <p>Logout</p>
+      <h2 className="logo">Twitter</h2>
+      <div className="menu">
+        <p>Home</p>
+        <p>Explore</p>
+        <p>Notifications</p>
+        <p>Messages</p>
+        <p>Profile</p>
+      </div>
     </div>
   );
-};
+}
 
 export default Sidebar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
