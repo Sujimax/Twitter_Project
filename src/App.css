@@ -86,23 +86,10 @@ body {
 /* ================= BUTTON ================= */
 
 button {
-  background-color: #1da1f2;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
   margin-left: 5px;
 }
 
-button:hover {
-  background-color: #0d8de0;
-}
 
-/* Delete Button Override */
-button[style] {
-  background-color: red !important;
-}
 
 /* ================= POST CARD ================= */
 
@@ -113,3 +100,46 @@ button[style] {
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
+
+
+.post-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:10px;
+}
+
+.post-bottom span{
+  color:gray;
+  font-size:14px;
+}
+
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.trending {
+  width: 250px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.trend-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.trend-item:hover {
+  color: #1da1f2;
+}
+
+
+
+
+
+
+
