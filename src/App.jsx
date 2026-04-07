@@ -1,97 +1,47 @@
-
-import { useState, useEffect } from "react";
-import "./App.css";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Sidebar from "./components/Sidebar";
-import Feed from "./components/Feed";
-import Trending from "./components/Trending";
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-
-  const [posts, setPosts] = useState(() => {
-    const savedPosts = localStorage.getItem("posts");
-    return savedPosts ? JSON.parse(savedPosts) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("posts", JSON.stringify(posts));
-  }, [posts]);
-
-  const addPost = (text) => {
-
-    if (!text.trim()) return;
-
-    const newPost = {
-      id: Date.now(),
-      username: "Sujithra",
-      content: text,
-      likes: 0,
-      time: new Date().toLocaleTimeString(),
-    };
-
-    setPosts((prevPosts) => [newPost, ...prevPosts]);
-  };
-
-  const deletePost = (id) => {
-    setPosts((prevPosts) =>
-      prevPosts.filter((post) => post.id !== id)
-    );
-  };
-
-  const likePost = (id) => {
-
-    setPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === id
-          ? { ...post, likes: post.likes + 1 }
-          : post
-      )
-    );
-
-  };
-
   return (
-
     <Router>
+      <div className="min-h-screen bg-white text-gray-900 font-sans">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            
+            {/* Protected Routes */}
+            <Route 
+              path="/home" 
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/profile" 
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              } 
+            />
 
-      <Routes>
-
-        {/* Login Page */}
-        <Route path="/" element={<Login />} />
-
-        {/* Signup Page */}
-        <Route path="/signup" element={<Signup />} />
-
-        {/* Home Page */}
-        <Route
-          path="/home"
-          element={
-            <div className="layout">
-
-              <Sidebar />
-
-              <Feed
-                posts={posts}
-                addPost={addPost}
-                deletePost={deletePost}
-                likePost={likePost}
-              />
-
-              <Trending />
-
-            </div>
-          }
-        />
-
-      </Routes>
-
+            {/* Default Route */}
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="*" element={<div className="p-10 text-center font-bold text-2xl text-red-500">404 - Page Not Found</div>} />
+          </Routes>
+        </main>
+      </div>
     </Router>
-
   );
 }
 

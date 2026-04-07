@@ -1,52 +1,39 @@
-import React, {useState} from "react";
+import React from "react";
+import Sidebar from "../components/Sidebar";
 import PostInput from "../components/PostInput";
 import PostList from "../components/PostList";
+import Trending from "../components/Trending";
 
-function Home(){
+const Home = () => {
+  return (
+    // Max-Width set panni, Center-la kondu vandhutta (mx-auto)
+    <div className="max-w-[1250px] mx-auto flex min-h-screen">
+      
+      {/* 1. Left Sidebar (w-1/4) */}
+      <aside className="hidden md:block w-1/4 border-r sticky top-0 h-screen overflow-y-auto">
+        <Sidebar />
+      </aside>
 
-  const [posts, setPosts] = useState([]);
+      {/* 2. Main Center Posts (w-1/2 - Ippo idhu dhaan periya area) */}
+      <main className="w-full md:w-1/2 border-r min-h-screen bg-white shadow-sm">
+        <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b p-4 z-10">
+          <h1 className="text-xl font-extrabold text-gray-900 tracking-tight">Main Feed</h1>
+        </header>
 
-  const addPost = (text) => {
+        {/* Post Input */}
+        <PostInput />
 
-    const newPost = {
-      id: Date.now(),
-      content: text
-    };
+        {/* List of Tweets */}
+        <PostList />
+      </main>
 
-    setPosts([newPost, ...posts]);
-  };
-
-  return(
-
-    <div style={{width:"500px", margin:"auto"}}>
-
-      <h2>Mini Twitter</h2>
-
-      <PostInput addPost={addPost}/>
-
-      <PostList posts={posts}/>
+      {/* 3. Right Trending (Same w-1/4 as Left) */}
+      <aside className="hidden lg:block w-1/4 p-4 sticky top-0 h-screen">
+        <Trending />
+      </aside>
 
     </div>
-
-  )
-
-}
+  );
+};
 
 export default Home;
-
-
-
-
-// import Sidebar from "../components/Sidebar";
-// import Feed from "../components/Feed";
-
-// function Home() {
-//   return (
-//     <div className="homeContainer">
-//       <Sidebar />
-//       <Feed />
-//     </div>
-//   );
-// }
-
-// export default Home;
