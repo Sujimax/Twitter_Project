@@ -25,7 +25,6 @@ const PostList = () => {
   if (!posts || posts.length === 0) {
     return <div className="p-10 text-center text-gray-500 italic">No posts yet!</div>;
   }
-
   return (
     <div className="flex flex-col">
       {posts.map((post) => (

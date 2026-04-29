@@ -5,13 +5,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../store/slices/authSlice";
 
-// Material UI Imports (As per old code)
+// Material UI Imports 
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-// import "./Auth.css"; // Assuming old CSS file exists
-
+// import "./Auth.css"; 
 function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,7 +24,7 @@ function Signup() {
     confirmPassword: "",
   };
 
-  // Old Validations (Restored from your original code)
+  // form Validations 
   const validationSchema = Yup.object({
     fullname: Yup.string()
       .matches(/^[A-Za-z\s]+$/, "Only Alphabets allowed")
@@ -46,7 +45,6 @@ function Signup() {
       .matches(/[0-9]/, "Password must contain at least one number")
       .matches(/[a-z]/, "Password must contain at least one lower case")
       .matches(/[!@#$%^&*]/, "Password must contain at least one special character")
-
       .required("Password is required"),
 
     confirmPassword: Yup.string()
@@ -99,6 +97,7 @@ function Signup() {
               enableReinitialize
             >
               <Form autoComplete="off">
+
                 <div className="form-group mb-4">
                   <label>Full Name</label>
                   <Field
@@ -160,7 +159,7 @@ function Signup() {
                 </div>
 
                 <button type="submit" disabled={loading} className="w-full bg-blue-500 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition duration-200">
-                  {loading ? "Creating Account..." : "Signup"}
+                  {loading ? "Creating Account..." : "Signup"}  
                 </button>
 
                 <p style={{ textAlign: 'center', marginTop: '20px' }}>
